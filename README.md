@@ -1,4 +1,4 @@
-## dockerizing-javaSpringBoot-mySQL-angular-system
+## docker-java-mysql-angular
 
 ## Backend
 - before build (we need jar file created)
@@ -39,11 +39,11 @@ docker-compose down && docker-compose build --no-cache && docker-compose up
 <br>
 ## Docker utils
 - remove all containers
+
 ```
 docker container rm $(docker container ls -aq)
 ```
-<br>
-## Docker utils
+
 - stop all containers
 ```
 docker stop $(docker ps -q)
