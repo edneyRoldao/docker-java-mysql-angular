@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  mysqldockerdatabase:
+    image: mysql:8.0
+    container_name: "mysqlDockerDB"
+    environment:
+      MYSQL_DATABASE: ${DB_USERNAME}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "${DB_PORT}:3306"
+    volumes:
+      - ../mysql_db/data:/var/lib/mysql
+  taskmanagerbackend:
+    build: ./task-manager-backend
+    container_name: task-manager-back
+    ports:
+      - "8088:8080"
+    environment:
+      DB_HOST: "mysqldockerdatabase"
+      DB_PORT: ${DB_PORT}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+  taskmanagerfrontend:
+    build: ./task-manager-frontend
+    container_name: task-manager-front
+    ports:
+      - "4200:80"
