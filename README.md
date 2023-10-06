@@ -38,11 +38,6 @@ docker-compose down && docker-compose build --no-cache && docker-compose up
 
 <br>
 ## Docker utils
-- remove all containers
-
-```
-docker container rm $(docker container ls -aq)
-```
 
 - stop all containers
 ```
